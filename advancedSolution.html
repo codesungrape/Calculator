@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./calculator.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #calculator-header {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        #calculator-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #result-output-area {
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+        #result-output {
+            width: 100%;
+            height: 40px;
+            font-size: 1.5rem;
+            text-align: right;
+            padding-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px; /* Add this line to create rounded borders */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add a slight shadow for better visualization */
+        }
+        .calculator-button {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            margin: 5px;
+        }
+        #input-buttons {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header id="calculator-header">Calculator</header>
+    
+    <div id="calculator-container">
+        <div id="result-output-area">
+            <input type="text" id="result-output" readonly>
+        </div>
+        <div id="input-buttons">
+            <button class="calculator-button" onclick="appendValue('7')">7</button>
+            <button class="calculator-button" onclick="appendValue('8')">8</button>
+            <button class="calculator-button" onclick="appendValue('9')">9</button>
+            <button class="calculator-button" onclick="appendValue('/')">&divide;</button>
+            <button class="calculator-button" onclick="appendValue('sqrt(')">&radic;</button>
+
+            <button class="calculator-button" onclick="appendValue('4')">4</button>
+            <button class="calculator-button" onclick="appendValue('5')">5</button>
+            <button class="calculator-button" onclick="appendValue('6')">6</button>
+            <button class="calculator-button" onclick="appendValue('*')">&times;</button>
+            <button class="calculator-button" onclick="appendValue('%')">%</button>
+
+            <button class="calculator-button" onclick="appendValue('1')">1</button>
+            <button class="calculator-button" onclick="appendValue('2')">2</button>
+            <button class="calculator-button" onclick="appendValue('3')">3</button>
+            <button class="calculator-button" onclick="appendValue('-')">&minus;</button>
+            <button class="calculator-button" onclick="appendValue('pi')">&pi;</button>
+
+            <button class="calculator-button" onclick="appendValue('0')">0</button>
+            <button class="calculator-button" onclick="appendValue('.')">.</button>
+            <button class="calculator-button" onclick="clearOutput()">C</button>
+            <button class="calculator-button" onclick="appendValue('+')">&plus;</button>
+            <button class="calculator-button" onclick="calculateResult()">=</button>
+        </div>
+    </div>
+
+    <script>
+        function appendValue(value) {
+            document.getElementById('result-output').value += value;
+        }
+
+        function clearOutput() {
+            document.getElementById('result-output').value = '';
+        }
+
+        function calculateResult() {
+            try {
+                const result = eval(document.getElementById('result-output').value.replace('sqrt', 'Math.sqrt').replace('pi', 'Math.PI'));
+                document.getElementById('result-output').value = result;
+            } catch (e) {
+                alert('Invalid Expression');
+                clearOutput();
+            }
+        }
+    </script>
+</body>
+</html>

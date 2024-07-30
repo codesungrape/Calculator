@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #CFBAE1;
+}
+
+#calculator-header {
+    text-align: center;
+    font-family: 'Honk';
+    font-size: 50px;
+}
+
+
+#calculator-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.calculator-button {
+    width: 60px;
+    height: 50px;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+#result-output {
+    width: 350px;
+    height: 70px;
+    margin-top: 10px;
+    /* border-radius: 10px; Add this line to create rounded borders */
+    
+}
+
+#input-buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    margin: 10px;
+    padding-left: 10px;
+    
+}
+
+
+#button-dot, #button0, #button1, #button2, #button3, #button4, #button5, #button6, #button7, #button8, #button9 {
+    background-color: blanchedalmond;
+    border-radius: 10px;
+}
+
+#button-clear {
+    background-color: #EA526F;
+}
+
+#button-equals {
+    background-color: #C9F299;
+}
